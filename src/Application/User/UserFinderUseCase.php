@@ -4,30 +4,19 @@ namespace src\Application\User;
 
 use src\Domain\User\User;
 use src\Domain\User\UserRepository;
+use src\Domain\User\UserFinderUseCase as DomainUserFinderUseCase;
 
 
 final class UserFinderUseCase
 {
-    private $repository;
+    private $finder;
 
     public function __construct(UserRepository $repository) {
-        $this->repository = $repository;
+        $this->finder = new DomainUserFinderUseCase($repository);
     }
 
-    public function find(int $userId): ?User
+    public function __invoke(int $userId): ?User
     {
-        $user = $this->repository->find($userId);
-
-        $this->guard($user);
-
-        return $user;
-    }
-
-    private function guard(?User $user): void
-    {
-        if (is_null($user)) {
-            echo 'user does not exist';
-            die();
-        }
+        return $this->finder->__invoke($userId);
     }
 }
