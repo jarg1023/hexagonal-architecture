@@ -4,19 +4,19 @@ namespace src\Domain\User;
 
 final class User
 {
-    private $id;
-    private $firstName;
     private $age;
+    private $firstName;
+    private $id;
 
-    public function __construct(int $id, string $firstName, int $age) {
-        $this->id        = $id;
-        $this->firstName = $firstName;
+    public function __construct(int $age, string $firstName, int $id) {
         $this->age       = $age;
+        $this->firstName = $firstName;
+        $this->id        = $id;
     }
-
-    public function getId(): int
+    
+    public function getAge(): int
     {
-        return $this->id;
+        return $this->age;
     }
 
     public function getFirstName(): string
@@ -24,8 +24,14 @@ final class User
         return $this->firstName;
     }
 
-    public function getAge(): int
+    public function getId(): int
     {
-        return $this->age;
+        return $this->id;
+    }
+
+    // ? Per què això va aquí? Perquè té a veure amb actualitzar una propietat de l'entitat?
+    public function updateFirstName(string $firstName): void
+    {
+        $this->firstName = $firstName;
     }
 }
