@@ -14,8 +14,20 @@ final class UserFinderUseCase
         $this->repository = $repository;
     }
 
-    public function find(int $userId): User
+    public function find(int $userId): ?User
     {
-        return $this->repository->find($userId);
+        $user = $this->repository->find($userId);
+
+        $this->guard($user);
+
+        return $user;
+    }
+
+    private function guard(?User $user): void
+    {
+        if (is_null($user)) {
+            echo 'user does not exist';
+            die();
+        }
     }
 }
