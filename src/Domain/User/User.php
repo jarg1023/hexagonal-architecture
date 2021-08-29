@@ -29,7 +29,7 @@ final class User
         return $this->id;
     }
 
-    // ? Per què això va aquí? Perquè té a veure amb actualitzar una propietat de l'entitat?
+    // ? Per què això va aquí? Perquè té a veure amb actualitzar una propietat de l'entitat? No es podria afegir a UserRepository un mètode que fos 'updateUserFirstName' i que es gestionés d'allà?
     public function updateFirstName(string $firstName): void
     {
         $this->firstName = $firstName;
