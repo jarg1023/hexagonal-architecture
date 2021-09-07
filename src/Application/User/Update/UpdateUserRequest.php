@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Domain\User;
+namespace App\Application\User\Update;
 
 use App\Domain\User\ValueObjects\UserAge;
 use App\Domain\User\ValueObjects\UserFirstName;
 use App\Domain\User\ValueObjects\UserId;
 
-final class User
+final class UpdateUserRequest
 {
     private $age;
     private $firstName;
@@ -17,7 +17,7 @@ final class User
         $this->firstName = $firstName;
         $this->id        = $id;
     }
-    
+
     public function getAge(): UserAge
     {
         return $this->age;
@@ -31,15 +31,5 @@ final class User
     public function getId(): UserId
     {
         return $this->id;
-    }
-
-    public function setFirstName(UserFirstName $firstName): void
-    {
-        $this->firstName = $firstName;
-    }
-
-    public function setAge(UserAge $age): void
-    {
-        $this->age = $age;
     }
 }

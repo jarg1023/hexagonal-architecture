@@ -1,13 +1,14 @@
 <?php
 
-namespace src\Infrastructure\User;
+namespace App\Infrastructure\User;
 
-use src\Domain\User\User;
-use src\Domain\User\UserRepository;
+use App\Domain\User\User;
+use App\Domain\User\UserRepository;
+use App\Domain\User\ValueObjects\UserId;
 
 final class MySqlUserRepository implements UserRepository
 {
-    public function find(int $userId): ?User
+    public function find(UserId $userId): ?User
     {
         // Return User;
         return null;

@@ -1,0 +1,22 @@
+
+<?php
+
+namespace App\Domain\User\ValueObjects;
+
+class UserFirstName
+{
+    private $firstName;
+
+    public function __construct(string $firstName) {
+        $this->validFirstName($firstName);
+        $this->firstName = $firstName;
+    }
+
+    private function validFirstName(string $firstName): void
+    {
+        if (empty($firstName)) {
+            echo "First name must have a value";
+            die();
+        }
+    }
+}

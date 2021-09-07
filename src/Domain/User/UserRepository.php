@@ -1,9 +1,11 @@
 <?php
 
-namespace src\Domain\User;
+namespace App\Domain\User;
+
+use App\Domain\User\ValueObjects\UserId;
 
 interface UserRepository
 {
-    public function find(int $userId): ?User;
+    public function find(UserId $userId): ?User;
     public function save(User $user): void;
 }
