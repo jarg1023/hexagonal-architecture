@@ -2,6 +2,8 @@
 
 namespace App\Domain\User\ValueObjects;
 
+use InvalidArgumentException;
+
 class UserAge
 {
     private $age;
@@ -14,8 +16,7 @@ class UserAge
     private function validAge(int $age): void
     {
         if ($age < 0) {
-            echo "Age must be equal or greater than 0";
-            die();
+            throw new InvalidArgumentException("Age must be equal or greater than 0");
         }
     }
 }

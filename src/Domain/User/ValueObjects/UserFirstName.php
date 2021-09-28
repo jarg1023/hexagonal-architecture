@@ -3,6 +3,8 @@
 
 namespace App\Domain\User\ValueObjects;
 
+use InvalidArgumentException;
+
 class UserFirstName
 {
     private $firstName;
@@ -15,8 +17,7 @@ class UserFirstName
     private function validFirstName(string $firstName): void
     {
         if (empty($firstName)) {
-            echo "First name must have a value";
-            die();
+            throw new InvalidArgumentException("First name must have a value");
         }
     }
 }

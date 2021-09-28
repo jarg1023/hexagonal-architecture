@@ -2,6 +2,8 @@
 
 namespace App\Domain\User\ValueObjects;
 
+use InvalidArgumentException;
+
 class UserId
 {
     private $id;
@@ -14,8 +16,7 @@ class UserId
     private function validId(int $id): void
     {
         if ($id < 0) {
-            echo "Age must be equal or greater than 0";
-            die();
+            throw new InvalidArgumentException("Age must be equal or greater than 0");
         }
     }
 }
